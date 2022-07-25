@@ -3,7 +3,7 @@ import {FireStore} from "./index";
 interface Data {
     collection: string,
     field: string,
-    value: string
+    value: string,
 }
 
 /**

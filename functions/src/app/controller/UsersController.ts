@@ -6,7 +6,7 @@ import findDocsByValue from "../../database/findDocsByValue";
 */
 async function UsersController(req: Request, res: Response) {
   const time = new Date().getTime();
-  const email = req.query.email;
+  const email: string = req.query.email?.toString() || '';
   res.json({
     value: email,
     data: await findDocsByValue({
