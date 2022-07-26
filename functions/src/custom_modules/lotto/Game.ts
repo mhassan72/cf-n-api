@@ -26,7 +26,7 @@ export class Game {
 
         return {
             today : weekdays[day],
-            games: this.all_games,
+            games: this.all_games
         }
 
     }
