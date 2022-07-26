@@ -1,4 +1,6 @@
-import { FireStore } from '../../database/index';
+// import { FireStore } from '../../database/index';
+import { FindGameByDays, weekdays, day } from './findDocuments'
+import { weeklyLotto } from "../hardCode"
 
 export class Game {
     all_games : any = []
@@ -9,9 +11,7 @@ export class Game {
     }
     
     async current_game () {
-        const day = new Date().getDay()
-        const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-        await FireStore.collection("games/lotto/weekly").where("game_days", "array-contains", weekdays[day])
+        await FindGameByDays(weeklyLotto)
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
